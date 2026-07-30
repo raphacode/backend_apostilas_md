@@ -18,7 +18,7 @@ A **Movies.API** terá:
 ### Stack
 
 - **.NET 10** + **C# 14**
-- **Entity Framework Core 10** + **PostgreSQL** (porta 5433)
+- **Entity Framework Core 10** + **PostgreSQL** (porta 5432)
 - **JWT Bearer** para autenticação
 - **OpenAPI nativo do ASP.NET Core** para documentar a API
 - **Swagger UI** para documentação interativa e testes pelo navegador
@@ -37,10 +37,274 @@ Vamos seguir essa **ordem de 25 passos**. Cada arquivo é um passo. Não pule.
 
 ## 15.3 Pré-requisitos
 
+### 15.3.1 Comece por aqui: links oficiais
+
+Este passo a passo considera um computador com **Windows de 64 bits (x64)** e um usuário com permissão de administrador. Faça os downloads abaixo antes de criar a `Movies.API`:
+
+| Ordem | Programa                    | Link oficial                                                           | O que baixar                                                                               |
+| ----- | --------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| 1     | **Visual Studio Community** | <https://visualstudio.microsoft.com/pt-br/vs/community/>               | A edição **Community 2026**, versão `18.0` ou superior                                     |
+| 2     | **SDK do .NET 8**           | <https://dotnet.microsoft.com/pt-br/download/dotnet/8.0>               | O instalador do **SDK 8.0** para Windows, e não apenas o Runtime                           |
+| 3     | **SDK do .NET 10**          | <https://dotnet.microsoft.com/pt-br/download/dotnet/10.0>              | O instalador do **SDK 10.0** para Windows, e não apenas o Runtime                          |
+| 4     | **PostgreSQL + pgAdmin 4**  | <https://www.enterprisedb.com/downloads/postgres-postgresql-downloads> | O instalador do PostgreSQL para **Windows x86-64**; o pgAdmin será selecionado dentro dele |
+
+> 🎯 **Configuração obrigatória deste material**
+>
+> - SDKs que devem estar instalados: **.NET 8 e .NET 10**
+> - SDK usado pelo projeto deste capítulo: **.NET 10**
+> - Servidor: `localhost`
+> - Porta do PostgreSQL: `5432`
+> - Usuário do PostgreSQL: `postgres`
+> - Senha do PostgreSQL: `123456`
+> - Banco de dados: `movies`
+
+> ⚠️ Instale **os dois SDKs**, 8 e 10. Eles funcionam lado a lado no mesmo computador: instalar o SDK 10 não substitui o SDK 8. Não confunda **SDK** com **Runtime**: o Runtime apenas executa aplicações; o SDK permite criar, compilar, executar e publicar projetos.
+
+> ⚠️ Para desenvolver projetos .NET 10 pela interface, use o **Visual Studio Community 2026**, versão `18.0` ou superior. O Visual Studio 2022 pode trabalhar com versões anteriores do .NET, mas não é suficiente para criar este projeto com destino `net10.0`.
+
+---
+
+### 15.3.2 Antes de instalar
+
+1. Salve seus trabalhos e feche terminais e instalações que estejam abertas.
+2. Execute o **Windows Update** e reinicie o computador se houver atualização ou reinicialização pendente.
+3. Confirme que sua conta pode autorizar a janela do **Controle de Conta de Usuário** do Windows.
+4. Em **Configurações → Sistema → Sobre → Tipo de sistema**, confirme que aparece **sistema operacional de 64 bits, processador baseado em x64**. Este roteiro usa os instaladores x64 do .NET e do PostgreSQL.
+5. Mantenha conexão com a internet durante a instalação do Visual Studio, porque o instalador baixa os componentes selecionados.
+
+---
+
+### 15.3.3 Instalando e configurando o Visual Studio Community
+
+1. Abra <https://visualstudio.microsoft.com/pt-br/vs/community/>.
+2. Clique no botão de download da edição **Community**.
+3. Abra o arquivo baixado, normalmente chamado `VisualStudioSetup.exe` ou `vs_Community.exe`.
+4. Quando o Windows perguntar se deseja permitir alterações no dispositivo, clique em **Sim**.
+5. Leia os termos apresentados e clique em **Continuar** para abrir o **Visual Studio Installer**.
+6. Se o instalador mostrar mais de uma versão disponível, selecione o **Visual Studio Community 2026**, versão `18.0` ou superior.
+7. Na aba **Cargas de trabalho**, marque:
+   - [x] **ASP.NET e desenvolvimento Web**
+8. Abra a aba **Componentes individuais**, pesquise por `.NET SDK` e confirme que o componente de **SDK do .NET** está marcado. Dependendo da versão do Visual Studio Installer, o nome pode ser genérico ou podem aparecer componentes adicionais identificados por versão; mantenha marcados os componentes recomendados pela carga de trabalho. As instalações independentes dos SDKs 8 e 10 serão feitas e verificadas na próxima seção.
+9. Mantenha os demais componentes padrão da carga de trabalho e clique em **Instalar**.
+10. Aguarde o download e a instalação. Reinicie o Windows se o instalador solicitar.
+11. Abra o **Visual Studio Community**. O login com uma conta Microsoft pode ser feito, mas não é obrigatório para iniciar o projeto.
+12. No menu **Ajuda → Sobre o Microsoft Visual Studio**, confirme que a versão instalada começa com `18.` ou é superior.
+13. Na tela inicial, clique em **Criar um novo projeto** e pesquise por `API Web do ASP.NET Core`.
+14. Confirme que esse template aparece. Avance somente até a tela de seleção de Framework e confira se **.NET 8.0** e **.NET 10.0** estão disponíveis. Cancele a criação; esta etapa serve apenas para validar a instalação.
+
+Se o template ou o .NET 10 não aparecer:
+
+1. Feche o Visual Studio.
+2. Abra **Visual Studio Installer** pelo menu Iniciar.
+3. Atualize a instalação Community se a versão for anterior à `18.0`.
+4. Clique em **Modificar**.
+5. Marque **ASP.NET e desenvolvimento Web**, confirme o componente de **SDK do .NET** e conclua a modificação. Depois, repita as instalações e verificações dos SDKs 8 e 10 descritas na próxima seção.
+
+---
+
+### 15.3.4 Instalando e verificando os SDKs do .NET 8 e do .NET 10
+
+Mesmo que o Visual Studio tenha instalado componentes do .NET, instale e verifique os dois SDKs para garantir que eles estejam disponíveis também no terminal.
+
+#### Instalar o SDK do .NET 8
+
+1. Abra <https://dotnet.microsoft.com/pt-br/download/dotnet/8.0>.
+2. Localize a seção **Criar aplicativos — SDK**.
+3. Na versão mais recente do **SDK 8.0**, localize a linha **Windows**.
+4. Em **Instaladores**, clique em **x64**.
+5. Abra o arquivo `.exe`, autorize a instalação, clique em **Instalar** e aguarde a conclusão.
+
+#### Instalar o SDK do .NET 10
+
+1. Abra <https://dotnet.microsoft.com/pt-br/download/dotnet/10.0>.
+2. Localize a seção **Criar aplicativos — SDK**.
+3. Na versão mais recente do **SDK 10.0**, localize a linha **Windows**.
+4. Em **Instaladores**, clique em **x64**, a mesma arquitetura usada no SDK 8.
+5. Abra o arquivo `.exe`, autorize a instalação, clique em **Instalar** e aguarde a conclusão.
+6. Não desinstale o SDK 8. Os dois devem permanecer instalados lado a lado.
+
+#### Verificar os dois SDKs
+
+1. Feche e abra novamente o Visual Studio, o PowerShell e qualquer Prompt de Comando que já estivesse aberto. Isso atualiza o ambiente usado pelos programas.
+2. Abra um novo **PowerShell** e execute:
+
+```bash
+dotnet --list-sdks
+dotnet --version
+dotnet --info
+dotnet new webapi --help
+```
+
+O comando `dotnet --list-sdks` precisa mostrar pelo menos uma linha `8.0.xxx` e outra `10.0.xxx`. Exemplo de formato:
+
+```text
+8.0.xxx [C:\Program Files\dotnet\sdk]
+10.0.xxx [C:\Program Files\dotnet\sdk]
+```
+
+Os números no lugar de `xxx` mudam conforme as atualizações. Fora de uma pasta controlada por um arquivo `global.json`, `dotnet --version` normalmente mostrará `10.0.xxx`, porque é o SDK mais novo. A confirmação decisiva de que **os dois** estão instalados é a saída de `dotnet --list-sdks`.
+
+Configure também o certificado HTTPS de desenvolvimento que será usado pela API:
+
+```bash
+dotnet dev-certs https --trust
+```
+
+Quando o Windows solicitar confirmação para confiar no certificado, aceite. Esse certificado é somente para o desenvolvimento local.
+
+Se `dotnet --list-sdks` não mostrar as duas famílias de versão:
+
+1. Feche todos os terminais e reinicie o Windows.
+2. Abra um novo PowerShell e repita `dotnet --list-sdks`.
+3. Se ainda faltar `8.0.xxx`, execute novamente o instalador do SDK 8 e escolha **Reparar**, quando essa opção for apresentada.
+4. Se ainda faltar `10.0.xxx`, execute novamente o instalador do SDK 10 e escolha **Reparar**, quando essa opção for apresentada.
+5. Não prossiga até que as versões `8.0.xxx` e `10.0.xxx` apareçam na lista.
+
+---
+
+### 15.3.5 Instalando o PostgreSQL na porta 5432
+
+Antes da instalação, abra o PowerShell e confira se a porta está livre:
+
+```powershell
+Get-NetTCPConnection -LocalPort 5432 -State Listen -ErrorAction SilentlyContinue
+```
+
+- Se o comando não mostrar nada, a porta `5432` está livre.
+- Se mostrar uma linha, já existe um programa escutando nessa porta. **Não escolha outra porta e não prossiga com a instalação ainda.** Identifique e encerre ou reconfigure o programa conflitante com segurança. Depois, repita o comando e só continue quando ele não mostrar nenhuma linha, confirmando que a porta `5432` está livre.
+
+Agora instale:
+
+1. Abra <https://www.enterprisedb.com/downloads/postgres-postgresql-downloads>.
+2. Escolha uma versão estável do PostgreSQL que ofereça instalador para **Windows x86-64**.
+3. Baixe e abra o instalador `.exe` como administrador.
+4. Na tela inicial do assistente, clique em **Next**.
+5. Mantenha o diretório de instalação sugerido e clique em **Next**.
+6. Na seleção de componentes, mantenha marcados:
+   - [x] **PostgreSQL Server**
+   - [x] **pgAdmin 4**
+   - [x] **Command Line Tools**
+   - [ ] **Stack Builder** é opcional e não será necessário neste projeto.
+7. Mantenha o diretório de dados sugerido e clique em **Next**.
+8. Na tela de senha do superusuário do banco:
+   - **Password:** `123456`
+   - **Retype password:** `123456`
+9. Na tela **Port**, digite exatamente:
+
+```text
+5432
+```
+
+10. Na tela de localidade, mantenha **Default locale**.
+11. Revise o resumo, clique em **Next** e aguarde a instalação.
+12. Ao final, desmarque a abertura do **Stack Builder**, se essa opção aparecer, e clique em **Finish**.
+
+> 🔒 A senha `123456` foi definida para manter todos os computadores da aula com a mesma configuração. Ela é fraca e deve ser usada **somente neste ambiente local de estudo**. Nunca use essa senha em produção ou em um banco exposto à internet.
+
+---
+
+### 15.3.6 Conferindo o serviço e configurando o pgAdmin 4
+
+#### Conferir o serviço do PostgreSQL
+
+1. Pressione `Win + R`.
+2. Digite `services.msc` e pressione Enter.
+3. Procure um serviço com nome semelhante a `postgresql-x64-XX`, em que `XX` representa a versão instalada.
+4. Confirme:
+   - **Status:** `Em execução`
+   - **Tipo de inicialização:** `Automático`
+5. Se estiver parado, clique com o botão direito no serviço e escolha **Iniciar**.
+
+Você também pode conferir no PowerShell:
+
+```powershell
+Get-Service -Name "postgresql*"
+Test-NetConnection -ComputerName localhost -Port 5432
+```
+
+No segundo comando, o resultado esperado é:
+
+```text
+TcpTestSucceeded : True
+```
+
+#### Abrir e conectar o pgAdmin 4
+
+1. Abra **pgAdmin 4** pelo menu Iniciar.
+2. Se ele solicitar uma **senha mestra**, lembre-se: essa senha protege as credenciais salvas dentro do pgAdmin e não é a senha do banco. Para este computador de estudo, você pode usar `123456` também para não se confundir.
+3. No painel esquerdo, expanda **Servers**.
+4. Se o servidor criado pelo instalador já aparecer, clique nele e informe a senha `123456`.
+5. Se nenhum servidor aparecer, clique com o botão direito em **Servers → Register → Server...** e preencha:
+
+| Aba | Campo | Valor |
+|---|---|---|
+| **General** | Name | `PostgreSQL local` |
+| **Connection** | Host name/address | `localhost` |
+| **Connection** | Port | `5432` |
+| **Connection** | Maintenance database | `postgres` |
+| **Connection** | Username | `postgres` |
+| **Connection** | Password | `123456` |
+| **Connection** | Save password | marcado |
+
+Clique em **Save**. O servidor deve aparecer conectado no painel esquerdo.
+
+#### Criar o banco `movies`
+
+1. Expanda o servidor conectado.
+2. Clique com o botão direito em **Databases → Create → Database...**.
+3. Em **Database**, digite `movies`.
+4. Em **Owner**, selecione `postgres`.
+5. Clique em **Save**.
+6. Expanda **Databases** e confirme que `movies` aparece na lista. Se necessário, clique com o botão direito em **Databases → Refresh**.
+7. Clique no banco `movies`, abra **Tools → Query Tool**, digite e execute:
+
+```sql
+SHOW port;
+SELECT current_user, current_database();
+```
+
+Os resultados esperados são:
+
+- porta: `5432`
+- usuário atual: `postgres`
+- banco atual: `movies`
+
+A connection string que será usada neste projeto é:
+
+```text
+Host=localhost;Port=5432;Database=movies;Username=postgres;Password=123456
+```
+
+> 💡 A porta `5432` é a porta do **PostgreSQL**. Ela não é a porta HTTPS da Movies.API. A API receberá outra porta local quando for executada pelo Visual Studio ou pelo comando `dotnet run`.
+
+---
+
+### 15.3.7 Verificação final da preparação
+
+Antes de seguir, confirme do zero:
+
+- [ ] O Visual Studio Community 2026, versão `18.0` ou superior, abre normalmente.
+- [ ] O template **API Web do ASP.NET Core** aparece no Visual Studio.
+- [ ] A carga de trabalho **ASP.NET e desenvolvimento Web** está instalada.
+- [ ] O Visual Studio oferece os frameworks **.NET 8.0** e **.NET 10.0**.
+- [ ] `dotnet --list-sdks` mostra uma versão `8.0.xxx` e uma versão `10.0.xxx`.
+- [ ] `dotnet --version` mostra `10.0.xxx` fora de uma pasta com `global.json`.
+- [ ] `dotnet new webapi --help` funciona.
+- [ ] O certificado HTTPS de desenvolvimento foi confiado.
+- [ ] O serviço do PostgreSQL está em execução.
+- [ ] `Test-NetConnection localhost -Port 5432` mostra `TcpTestSucceeded : True`.
+- [ ] O pgAdmin conecta em `localhost:5432` com usuário `postgres` e senha `123456`.
+- [ ] O banco `movies` existe e pertence ao usuário `postgres`.
+- [ ] `SHOW port;` retorna `5432`.
+
+Se todos os itens estiverem corretos, o computador está pronto para criar e executar a Movies.API.
+
+---
+
 Antes de começar, confirme:
 
 - [ ] **.NET 10 SDK** instalado: `dotnet --version` → `10.0.x`
-- [ ] **PostgreSQL** rodando na porta `5433`
+- [ ] **PostgreSQL** rodando na porta `5432`
 - [ ] usuário `postgres` / senha `123456`
 - [ ] **Visual Studio 2022+** ou **VS Code com C# Dev Kit**
 - [ ] **CLI do EF Core**:
@@ -510,7 +774,7 @@ public class JwtSettings
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "DefaultConnection": "Host=localhost;Port=5433;Database=movies;Username=postgres;Password=123456"
+    "DefaultConnection": "Host=localhost;Port=5432;Database=movies;Username=postgres;Password=123456"
   },
   "JwtSettings": {
     "Key": "YourStrongSecretKeyHere1234567890",

@@ -76,7 +76,7 @@ O ORM gera o SQL por você. **Entity Framework Core** é o ORM oficial do .NET.
 1. Baixe em <https://www.postgresql.org/download/windows/>.
 2. Durante a instalação:
    - Defina uma **senha** para o usuário `postgres` (ex.: `123456`).
-   - Aceite a porta padrão `5432` — ou mude para `5433` (vamos usar `5433` no projeto Movies.API).
+   - Aceite a porta padrão `5432` — ou mude para `5432` (vamos usar `5432` no projeto Movies.API).
 3. Instale a ferramenta **pgAdmin** que vem junto — é a interface gráfica para administrar o banco.
 
 ### Verificando
@@ -129,7 +129,7 @@ A **string de conexão** diz ao EF como achar o banco. Vai no `appsettings.json`
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Host=localhost;Port=5433;Database=movies;Username=postgres;Password=123456"
+    "DefaultConnection": "Host=localhost;Port=5432;Database=movies;Username=postgres;Password=123456"
   }
 }
 ```
@@ -137,7 +137,7 @@ A **string de conexão** diz ao EF como achar o banco. Vai no `appsettings.json`
 | Parte | Significado |
 |---|---|
 | `Host=localhost` | O servidor está na sua máquina. |
-| `Port=5433` | Porta TCP do PostgreSQL. |
+| `Port=5432` | Porta TCP do PostgreSQL. |
 | `Database=movies` | Nome do banco. |
 | `Username` / `Password` | Credenciais. |
 
