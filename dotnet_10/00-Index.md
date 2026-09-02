@@ -1,4 +1,4 @@
-# Apostila Completa de Backend com C#
+﻿# Apostila Completa de Backend com C#
 
 > Uma jornada do **absoluto zero** até a construção de **APIs profissionais** com C# e ASP.NET Core.
 > Material didático para alunos iniciantes que **nunca programaram**.
@@ -18,33 +18,33 @@
 ## Sumário
 
 ### Parte I — Fundamentos
-- [Capítulo 1 — Fundamentos de Programação e Backend](01-Fundamentos-Programacao-e-Backend.md)
-- [Capítulo 2 — C# e .NET: Primeiros Passos](02-CSharp-e-DotNet-Primeiros-Passos.md)
+-[Capítulo 1 — Fundamentos de Programação e Backend](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/01-Fundamentos-Programacao-e-Backend.md))
+-[Capítulo 2 — C# e .NET: Primeiros Passos](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/02-CSharp-e-DotNet-Primeiros-Passos.md))
 
 ### Parte II — Lógica de Programação
-- [Capítulo 3 — Lógica de Programação com C#](03-Logica-de-Programacao-com-CSharp.md)
-- [Capítulo 4 — Métodos e Modularização](04-Metodos-e-Modularizacao.md)
-- [Capítulo 5 — Coleções: Arrays, List e IEnumerable](05-Colecoes-Array-List-IEnumerable.md)
+-[Capítulo 3 — Lógica de Programação com C#](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/03-Logica-de-Programacao-com-CSharp.md))
+-[Capítulo 4 — Métodos e Modularização](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/04-Metodos-e-Modularizacao.md))
+-[Capítulo 5 — Coleções: Arrays, List e IEnumerable](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/05-Colecoes-Array-List-IEnumerable.md))
 
 ### Parte III — Orientação a Objetos
-- [Capítulo 6 — Orientação a Objetos (Completo)](06-Orientacao-a-Objetos.md)
-- [Capítulo 7 — Modificadores de Acesso e `static`](07-Modificadores-e-Static.md)
-- [Capítulo 8 — Interfaces e Classes Abstratas](08-Interfaces-e-Classes-Abstratas.md)
+-[Capítulo 6 — Orientação a Objetos (Completo)](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/06-Orientacao-a-Objetos.md))
+-[Capítulo 7 — Modificadores de Acesso e `static`](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/07-Modificadores-e-Static.md))
+-[Capítulo 8 — Interfaces e Classes Abstratas](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/08-Interfaces-e-Classes-Abstratas.md))
 
 ### Parte IV — Backend e APIs
-- [Capítulo 9 — Fundamentos de API e HTTP](09-Fundamentos-de-API-e-HTTP.md)
-- [Capítulo 10 — Construindo uma API REST com ASP.NET Core](10-Construindo-API-REST-ASPNET-Core.md)
-- [Capítulo 11 — Arquitetura: Controllers, Services, DTOs e Models](11-Arquitetura-Controllers-Services-DTOs-Models.md)
+-[Capítulo 9 — Fundamentos de API e HTTP](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/09-Fundamentos-de-API-e-HTTP.md))
+-[Capítulo 10 — Construindo uma API REST com ASP.NET Core](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/10-Construindo-API-REST-ASPNET-Core.md))
+-[Capítulo 11 — Arquitetura: Controllers, Services, DTOs e Models](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/11-Arquitetura-Controllers-Services-DTOs-Models.md))
 
 ### Parte V — Qualidade
-- [Capítulo 12 — Boas Práticas e Clean Code](12-Boas-Praticas-e-Clean-Code.md)
+-[Capítulo 12 — Boas Práticas e Clean Code](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/12-Boas-Praticas-e-Clean-Code.md))
 
 ### Parte VI — Persistência e Segurança
-- [Capítulo 13 — Entity Framework Core e PostgreSQL](13-Entity-Framework-Core-e-PostgreSQL.md)
-- [Capítulo 14 — Autenticação com JWT](14-Autenticacao-JWT.md)
+-[Capítulo 13 — Entity Framework Core e PostgreSQL](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/13-Entity-Framework-Core-e-PostgreSQL.md))
+-[Capítulo 14 — Autenticação com JWT](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/14-Autenticacao-JWT.md))
 
 ### Parte VII — Projeto Prático Final
-- [Capítulo 15 — Construindo a Movies.API Passo a Passo](15-Construindo-Movies-API-Passo-a-Passo.md)
+-[Capítulo 15 — Construindo a Movies.API Passo a Passo](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/15-Construindo-Movies-API-Passo-a-Passo.md))
 
 ---
 
@@ -76,3 +76,7 @@ As ferramentas serão instaladas no Capítulo 2.
 ---
 
 Bons estudos! 🚀 (figurinha de foguete autorizada só aqui no índice)
+
+---
+[[1-index|Voltar para o index]]
+

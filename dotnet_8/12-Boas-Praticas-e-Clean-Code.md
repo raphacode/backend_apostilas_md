@@ -1,4 +1,4 @@
-# Capítulo 12 — Boas Práticas e Clean Code
+﻿# Capítulo 12 — Boas Práticas e Clean Code
 
 > Programar é fácil. Programar **bem** é o que diferencia um profissional. Este capítulo traz princípios que vão te acompanhar a carreira inteira.
 
@@ -424,4 +424,8 @@ A jornada está só começando — e o caminho é divertido. Boa sorte!
 
 ---
 
-⬅️ **Voltar ao [Sumário](00-Index.md)**
+⬅️ **Voltar ao[Sumário](3-Apostilas/backend/01_csharp_dotnet/dotnet_8/00-Index.md))**
+
+---
+[[1-index|Voltar para o index]]
+

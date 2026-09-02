@@ -1,4 +1,4 @@
-# Capítulo 10 — Construindo uma API REST com ASP.NET Core
+﻿# Capítulo 10 — Construindo uma API REST com ASP.NET Core
 
 > Hora de pôr a mão na massa! Vamos criar uma API completa, do zero, e entender cada peça.
 
@@ -480,4 +480,8 @@ Isso tudo acontece em **milissegundos**.
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 11 — Arquitetura: Controllers, Services, DTOs e Models](11-Arquitetura-Controllers-Services-DTOs-Models.md)
+➡️ **Próximo capítulo:**[Capítulo 11 — Arquitetura: Controllers, Services, DTOs e Models](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/11-Arquitetura-Controllers-Services-DTOs-Models.md))
+
+---
+[[1-index|Voltar para o index]]
+

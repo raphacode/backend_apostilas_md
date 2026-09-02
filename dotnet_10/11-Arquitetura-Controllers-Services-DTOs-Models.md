@@ -1,4 +1,4 @@
-# Capítulo 11 — Arquitetura: Controllers, Services, DTOs e Models
+﻿# Capítulo 11 — Arquitetura: Controllers, Services, DTOs e Models
 
 > Colocar tudo no Controller é fácil — e errado. Aqui você aprende a **organizar** seu projeto como os profissionais.
 
@@ -477,4 +477,8 @@ Cada camada com **um único papel**. **Esse é o segredo.**
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 12 — Boas Práticas e Clean Code](12-Boas-Praticas-e-Clean-Code.md)
+➡️ **Próximo capítulo:**[Capítulo 12 — Boas Práticas e Clean Code](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/12-Boas-Praticas-e-Clean-Code.md))
+
+---
+[[1-index|Voltar para o index]]
+

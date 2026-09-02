@@ -1,4 +1,4 @@
-# Capítulo 14 — Autenticação com JWT
+﻿# Capítulo 14 — Autenticação com JWT
 
 > "Quem é você? Você pode entrar?" Toda API séria precisa responder essas duas perguntas. JWT é o padrão **mais usado** hoje.
 
@@ -504,4 +504,8 @@ Authorization: Bearer <seu_token>
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 15 — Construindo a Movies.API passo a passo](15-Construindo-Movies-API-Passo-a-Passo.md)
+➡️ **Próximo capítulo:**[Capítulo 15 — Construindo a Movies.API passo a passo](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/15-Construindo-Movies-API-Passo-a-Passo.md))
+
+---
+[[1-index|Voltar para o index]]
+

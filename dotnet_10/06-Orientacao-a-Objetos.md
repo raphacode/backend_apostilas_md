@@ -1,4 +1,4 @@
-# Capítulo 6 — Orientação a Objetos (Completo)
+﻿# Capítulo 6 — Orientação a Objetos (Completo)
 
 > "Programar é modelar a realidade." Orientação a Objetos (OO) é a forma mais usada no mundo de **organizar essa modelagem**. Este capítulo é o coração da apostila — leia com calma, releia se precisar.
 
@@ -574,4 +574,8 @@ foreach (Funcionario f in equipe)
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 7 — Modificadores de Acesso e `static`](07-Modificadores-e-Static.md)
+➡️ **Próximo capítulo:**[Capítulo 7 — Modificadores de Acesso e `static`](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/07-Modificadores-e-Static.md))
+
+---
+[[1-index|Voltar para o index]]
+

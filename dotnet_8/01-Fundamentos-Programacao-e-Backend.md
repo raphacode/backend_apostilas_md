@@ -1,4 +1,4 @@
-# Capítulo 1 — Fundamentos de Programação e Backend
+﻿# Capítulo 1 — Fundamentos de Programação e Backend
 
 > "Antes de aprender a escrever código, você precisa entender **o que** está escrevendo e **para quem**."
 
@@ -382,4 +382,8 @@ Responda mentalmente ou em um caderno:
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 2 — C# e .NET: Primeiros Passos](02-CSharp-e-DotNet-Primeiros-Passos.md)
+➡️ **Próximo capítulo:**[Capítulo 2 — C# e .NET: Primeiros Passos](3-Apostilas/backend/01_csharp_dotnet/dotnet_8/02-CSharp-e-DotNet-Primeiros-Passos.md))
+
+---
+[[1-index|Voltar para o index]]
+

@@ -280,4 +280,8 @@ Quando você roda `dotnet new console`, aparecem estes itens:
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 3 — Lógica de Programação com C#](03-Logica-de-Programacao-com-CSharp.md)
+➡️ **Próximo capítulo:** [Capítulo 3 — Lógica de Programação com C#](3-Apostilas/backend/01_csharp_dotnet/dotnet_8/03-Logica-de-Programacao-com-CSharp.md)
+
+---
+[[1-index|Voltar para o index]]
+

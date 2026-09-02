@@ -1,4 +1,4 @@
-# Capítulo 7 — Modificadores de Acesso e `static`
+﻿# Capítulo 7 — Modificadores de Acesso e `static`
 
 > Quem pode ver o quê? Quem precisa de instância? Este capítulo responde essas perguntas que **todo iniciante tem** ao começar OO em C#.
 
@@ -337,4 +337,8 @@ public class Configuracao
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 8 — Interfaces e Classes Abstratas](08-Interfaces-e-Classes-Abstratas.md)
+➡️ **Próximo capítulo:**[Capítulo 8 — Interfaces e Classes Abstratas](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/08-Interfaces-e-Classes-Abstratas.md))
+
+---
+[[1-index|Voltar para o index]]
+

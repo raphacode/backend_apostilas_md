@@ -55,17 +55,17 @@ bool eMaiorDeIdade = idade == 18;   // é igual a?
 
 Os principais tipos em C#:
 
-| Tipo | O que guarda | Exemplo |
-|---|---|---|
-| `int` | Número inteiro | `42`, `-7`, `0` |
-| `long` | Número inteiro **grande** | `9999999999L` |
-| `double` | Número decimal (alta precisão) | `3.14`, `19.90` |
-| `decimal` | Número decimal **muito preciso** (use para dinheiro) | `19.90m` |
-| `float` | Número decimal (menos preciso) | `3.14f` |
-| `bool` | Verdadeiro ou falso | `true`, `false` |
-| `char` | Um único caractere | `'a'`, `'?'` |
-| `string` | Texto (vários caracteres) | `"olá"` |
-| `DateTime` | Data e hora | `DateTime.Now` |
+| Tipo       | O que guarda                                         | Exemplo         |
+| ---------- | ---------------------------------------------------- | --------------- |
+| `int`      | Número inteiro                                       | `42`, `-7`, `0` |
+| `long`     | Número inteiro **grande**                            | `9999999999L`   |
+| `double`   | Número decimal (alta precisão)                       | `3.14`, `19.90` |
+| `decimal`  | Número decimal **muito preciso** (use para dinheiro) | `19.90m`        |
+| `float`    | Número decimal (menos preciso)                       | `3.14f`         |
+| `bool`     | Verdadeiro ou falso                                  | `true`, `false` |
+| `char`     | Um único caractere                                   | `'a'`, `'?'`    |
+| `string`   | Texto (vários caracteres)                            | `"olá"`         |
+| `DateTime` | Data e hora                                          | `DateTime.Now`  |
 
 ### Pegadinhas importantes
 
@@ -127,14 +127,14 @@ x /= 4;   // 6
 
 ### Operadores de comparação
 
-| Operador | Significado |
-|---|---|
-| `==` | Igual a |
-| `!=` | Diferente de |
-| `>` | Maior que |
-| `<` | Menor que |
-| `>=` | Maior ou igual |
-| `<=` | Menor ou igual |
+| Operador | Significado    |
+| -------- | -------------- |
+| `==`     | Igual a        |
+| `!=`     | Diferente de   |
+| `>`      | Maior que      |
+| `<`      | Menor que      |
+| `>=`     | Maior ou igual |
+| `<=`     | Menor ou igual |
 
 Sempre retornam `true` ou `false`.
 
@@ -496,4 +496,8 @@ else
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 4 — Métodos e Modularização](04-Metodos-e-Modularizacao.md)
+➡️ **Próximo capítulo:** [Capítulo 4 — Métodos e Modularização](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/04-Metodos-e-Modularizacao.md)
+
+---
+[[1-index|Voltar para o index]]
+

@@ -749,11 +749,16 @@ public static class PasswordEncryptor
 ```csharp
 namespace Movies.API.Authentication;
 
+/// Classe que representa as configurações do JWT (JSON Web Token)
 public class JwtSettings
 {
+   /// Chave secreta utilizada para assinar e validar os tokens JWT
     public string Key { get; set; } = string.Empty;
+    /// Emissor do token - identifica quem criou o token
     public string Issuer { get; set; } = string.Empty;
+    /// Audiência do token - identifica para quem o token é destinado
     public string Audience { get; set; } = string.Empty;
+    /// Duração do token em minutos - define por quanto tempo o token será válido
     public double DurationMinutes { get; set; }
 }
 ```
@@ -1637,4 +1642,8 @@ Daqui pra frente: **construa, erre, conserte, repita**. É assim que se vira pro
 
 ---
 
-⬅️ **Voltar ao [Sumário](00-Index.md)**
+⬅️ **Voltar ao [Sumário](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/00-Index.md)**
+
+---
+[[1-index|Voltar para o index]]
+

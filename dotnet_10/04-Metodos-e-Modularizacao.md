@@ -294,4 +294,8 @@ static double CelsiusParaKelvin(double celsius)
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 5 — Coleções: Arrays, List e IEnumerable](05-Colecoes-Array-List-IEnumerable.md)
+➡️ **Próximo capítulo:** [Capítulo 5 — Coleções: Arrays, List e IEnumerable](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/05-Colecoes-Array-List-IEnumerable.md)
+
+---
+[[1-index|Voltar para o index]]
+

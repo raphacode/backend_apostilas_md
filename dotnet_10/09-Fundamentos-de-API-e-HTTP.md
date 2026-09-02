@@ -1,4 +1,4 @@
-# Capítulo 9 — Fundamentos de API e HTTP
+﻿# Capítulo 9 — Fundamentos de API e HTTP
 
 > Antes de criar uma API, você precisa entender como **a internet conversa**. Este capítulo explica os tijolos que sustentam toda a web.
 
@@ -403,4 +403,8 @@ curl -X POST https://api.exemplo.com/produtos \
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 10 — Construindo uma API REST com ASP.NET Core](10-Construindo-API-REST-ASPNET-Core.md)
+➡️ **Próximo capítulo:**[Capítulo 10 — Construindo uma API REST com ASP.NET Core](3-Apostilas/backend/01_csharp_dotnet/dotnet_10/10-Construindo-API-REST-ASPNET-Core.md))
+
+---
+[[1-index|Voltar para o index]]
+

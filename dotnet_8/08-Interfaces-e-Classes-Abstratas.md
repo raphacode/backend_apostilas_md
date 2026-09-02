@@ -1,4 +1,4 @@
-# Capítulo 8 — Interfaces e Classes Abstratas
+﻿# Capítulo 8 — Interfaces e Classes Abstratas
 
 > Os dois recursos mais usados em código profissional para **abstração**. Saber qual usar em cada situação separa o iniciante do programador maduro.
 
@@ -366,4 +366,8 @@ Por que isso é genial? Veremos no **Capítulo 11** quando falarmos de **injeç�
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 9 — Fundamentos de API e HTTP](09-Fundamentos-de-API-e-HTTP.md)
+➡️ **Próximo capítulo:**[Capítulo 9 — Fundamentos de API e HTTP](3-Apostilas/backend/01_csharp_dotnet/dotnet_8/09-Fundamentos-de-API-e-HTTP.md))
+
+---
+[[1-index|Voltar para o index]]
+

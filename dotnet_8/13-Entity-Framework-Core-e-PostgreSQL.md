@@ -1,4 +1,4 @@
-# Capítulo 13 — Entity Framework Core e PostgreSQL
+﻿# Capítulo 13 — Entity Framework Core e PostgreSQL
 
 > Até aqui, nossas APIs guardavam dados **na memória**. Quando o programa parava, tudo sumia. Agora vamos aprender a **persistir de verdade** — em um banco de dados PostgreSQL — usando **Entity Framework Core (EF Core)**.
 
@@ -723,4 +723,8 @@ Por que `using var connection = new DataContext();`?
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 14 — Autenticação com JWT](14-Autenticacao-JWT.md)
+➡️ **Próximo capítulo:**[Capítulo 14 — Autenticação com JWT](3-Apostilas/backend/01_csharp_dotnet/dotnet_8/14-Autenticacao-JWT.md))
+
+---
+[[1-index|Voltar para o index]]
+

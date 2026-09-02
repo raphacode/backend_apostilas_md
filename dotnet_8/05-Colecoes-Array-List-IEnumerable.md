@@ -1,4 +1,4 @@
-# Capítulo 5 — Coleções: Arrays, List e IEnumerable
+﻿# Capítulo 5 — Coleções: Arrays, List e IEnumerable
 
 > Quase todo programa real precisa lidar com **vários itens ao mesmo tempo**: lista de usuários, produtos, mensagens. As **coleções** são para isso.
 
@@ -361,4 +361,8 @@ while (true)
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 6 — Orientação a Objetos (Completo)](06-Orientacao-a-Objetos.md)
+➡️ **Próximo capítulo:**[Capítulo 6 — Orientação a Objetos (Completo)](3-Apostilas/backend/01_csharp_dotnet/dotnet_8/06-Orientacao-a-Objetos.md))
+
+---
+[[1-index|Voltar para o index]]
+

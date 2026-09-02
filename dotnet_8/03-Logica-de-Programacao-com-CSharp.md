@@ -1,4 +1,4 @@
-# Capítulo 3 — Lógica de Programação com C#
+﻿# Capítulo 3 — Lógica de Programação com C#
 
 > Neste capítulo você aprende a **pensar como programador**. Variáveis, decisões e repetições são a base de tudo.
 
@@ -496,4 +496,8 @@ else
 
 ---
 
-➡️ **Próximo capítulo:** [Capítulo 4 — Métodos e Modularização](04-Metodos-e-Modularizacao.md)
+➡️ **Próximo capítulo:**[Capítulo 4 — Métodos e Modularização](3-Apostilas/backend/01_csharp_dotnet/dotnet_8/04-Metodos-e-Modularizacao.md))
+
+---
+[[1-index|Voltar para o index]]
+
