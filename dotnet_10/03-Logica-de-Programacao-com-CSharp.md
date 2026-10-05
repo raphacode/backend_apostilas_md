@@ -105,13 +105,13 @@ Tente alterar uma constante e o compilador vai dar erro.
 
 ### Operadores aritméticos
 
-| Operador | Significado | Exemplo | Resultado |
-|---|---|---|---|
-| `+` | Soma | `5 + 3` | `8` |
-| `-` | Subtração | `5 - 3` | `2` |
-| `*` | Multiplicação | `5 * 3` | `15` |
-| `/` | Divisão | `10 / 2` | `5` |
-| `%` | Resto da divisão (módulo) | `10 % 3` | `1` |
+| Operador | Significado               | Exemplo  | Resultado |
+| -------- | ------------------------- | -------- | --------- |
+| `+`      | Soma                      | `5 + 3`  | `8`       |
+| `-`      | Subtração                 | `5 - 3`  | `2`       |
+| `*`      | Multiplicação             | `5 * 3`  | `15`      |
+| `/`      | Divisão                   | `10 / 2` | `5`       |
+| `%`      | Resto da divisão (módulo) | `10 % 3` | `1`       |
 
 > **Cuidado com a divisão de inteiros**: `7 / 2` em C# dá `3` (inteiro), não `3.5`. Para obter `3.5`, faça `7.0 / 2` ou `7 / 2.0`.
 

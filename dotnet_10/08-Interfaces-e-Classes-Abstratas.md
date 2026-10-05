@@ -1,4 +1,4 @@
-﻿# Capítulo 8 — Interfaces e Classes Abstratas
+# Capítulo 8 — Interfaces e Classes Abstratas
 
 > Os dois recursos mais usados em código profissional para **abstração**. Saber qual usar em cada situação separa o iniciante do programador maduro.
 

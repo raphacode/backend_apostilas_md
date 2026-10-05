@@ -1,4 +1,4 @@
-﻿# Capítulo 7 — Modificadores de Acesso e `static`
+# Capítulo 7 — Modificadores de Acesso e `static`
 
 > Quem pode ver o quê? Quem precisa de instância? Este capítulo responde essas perguntas que **todo iniciante tem** ao começar OO em C#.
 

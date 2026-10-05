@@ -1,4 +1,4 @@
-﻿# Capítulo 5 — Coleções: Arrays, List e IEnumerable
+# Capítulo 5 — Coleções: Arrays, List e IEnumerable
 
 > Quase todo programa real precisa lidar com **vários itens ao mesmo tempo**: lista de usuários, produtos, mensagens. As **coleções** são para isso.
 
@@ -82,7 +82,7 @@ Por isso, na prática, **quase sempre usamos `List<T>`**.
 
 ---
 
-## 5.3 List<T> — a coleção mais usada
+## 5.3 `List<T>` — a coleção mais usada
 
 `List<T>` é uma lista **dinâmica** (cresce e diminui sozinha). O `<T>` significa "tipo genérico" — você define que tipo a lista vai guardar.
 
@@ -145,7 +145,7 @@ foreach (int numero in numeros)
 
 ---
 
-## 5.4 IEnumerable<T>
+## 5.4 `IEnumerable<T>`
 
 Aqui chegamos a um conceito **crucial** que muitos iniciantes não entendem direito. Vamos com calma.
 
@@ -181,13 +181,13 @@ Você só pode **iterar** com `foreach` e usar métodos do **LINQ** (`Where`, `S
 
 ## 5.5 Diferença entre `List<T>` e `IEnumerable<T>`
 
-| Característica | `List<T>` | `IEnumerable<T>` |
-|---|---|---|
-| Pode adicionar/remover? | ✅ Sim | ❌ Não |
-| Acesso por índice (`[i]`)? | ✅ Sim | ❌ Não |
-| Sabe o tamanho rapidamente? | ✅ `Count` (instantâneo) | ⚠️ `Count()` percorre toda a coleção |
-| Carrega tudo na memória? | ✅ Sim | ⚠️ Pode ser **lazy** (carrega sob demanda) |
-| Para que serve? | Manipular dados | **Apenas ler / iterar** |
+| Característica              | `List<T>`               | `IEnumerable<T>`                           |
+| --------------------------- | ----------------------- | ------------------------------------------ |
+| Pode adicionar/remover?     | ✅ Sim                   | ❌ Não                                      |
+| Acesso por índice (`[i]`)?  | ✅ Sim                   | ❌ Não                                      |
+| Sabe o tamanho rapidamente? | ✅ `Count` (instantâneo) | ⚠️ `Count()` percorre toda a coleção       |
+| Carrega tudo na memória?    | ✅ Sim                   | ⚠️ Pode ser **lazy** (carrega sob demanda) |
+| Para que serve?             | Manipular dados         | **Apenas ler / iterar**                    |
 
 ### A grande sacada: lazy evaluation
 
@@ -270,28 +270,231 @@ foreach (KeyValuePair<string, int> par in idades)
 
 ---
 
-## 5.7 LINQ — uma prévia
+## 5.7 LINQ — consultar, filtrar e transformar coleções
 
-LINQ é uma **linguagem de consulta** integrada ao C#. Funciona em qualquer `IEnumerable<T>`.
+**LINQ** significa *Language Integrated Query* (*consulta integrada à linguagem*). Na prática, é um conjunto de ferramentas do C# para fazer perguntas a uma coleção:
+
+- “quais números são pares?”;
+- “quais nomes começam com A?”;
+- “coloque as notas da maior para a menor”;
+- “qual é a média?”;
+- “quantos itens atendem a uma condição?”.
+
+LINQ **não é outra coleção** e não substitui `List<T>`. A `List<T>` guarda os dados; LINQ ajuda a **ler, filtrar, organizar, transformar ou calcular** usando esses dados. Ele funciona muito bem com `List<T>`, arrays e qualquer `IEnumerable<T>`.
+
+> [!tip] Modelo mental
+> Pense sempre em três partes: **fonte dos dados** -> **operação LINQ** -> **resultado**.  
+> Exemplo: `numeros` -> `Where(...)` -> “somente os pares”.
+
+### Preparação
+
+Os métodos de LINQ ficam no namespace `System.Linq`:
 
 ```csharp
+using System;
+using System.Collections.Generic;
 using System.Linq;
-
-List<int> numeros = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-
-var pares = numeros.Where(n => n % 2 == 0).ToList();
-// [2, 4, 6, 8, 10]
-
-var dobrados = numeros.Select(n => n * 2).ToList();
-// [2, 4, 6, ...]
-
-var soma = numeros.Sum();         // 55
-var media = numeros.Average();    // 5.5
-var maior = numeros.Max();        // 10
-var quantosMaiorQue5 = numeros.Count(n => n > 5); // 5
 ```
 
-LINQ merece um capítulo só dele. Por ora, saiba que **existe** e é poderoso.
+Nos exemplos deste capítulo será usada a **sintaxe de métodos**, porque ela deixa claro qual operação está sendo aplicada em cada etapa.
+
+### Primeiro exemplo: filtrar com `Where`
+
+```csharp
+List<int> numeros = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+IEnumerable<int> pares = numeros.Where(numero => numero % 2 == 0);
+
+Console.WriteLine(string.Join(", ", pares));
+// Saída: 2, 4, 6, 8, 10
+```
+
+Leia esta linha com calma:
+
+```csharp
+numeros.Where(numero => numero % 2 == 0)
+```
+
+| Parte | Significado |
+|---|---|
+| `numeros` | A coleção que será consultada. |
+| `Where(...)` | “Mantenha apenas os itens que passam na condição”. |
+| `numero` | Nome temporário dado a **cada número**, um de cada vez. Poderia ser `n`, mas `numero` é mais claro no começo. |
+| `=>` | Lê-se “para cada”. Ele separa o item recebido da regra aplicada a ele. |
+| `numero % 2 == 0` | A condição: o resto da divisão por 2 é zero, então o número é par. |
+
+Portanto, `numero => numero % 2 == 0` quer dizer: **“para cada número, mantenha-o se ele for par”**.
+
+> [!important] `Where` não altera a lista original
+> Depois de criar `pares`, a lista `numeros` ainda contém todos os números de `1` a `10`. `Where` cria uma **consulta de leitura**, não remove os ímpares da lista.
+
+### Quando a consulta realmente acontece: `IEnumerable` e `ToList()`
+
+O resultado de `Where`, `Select`, `OrderBy` e vários outros métodos costuma ser um `IEnumerable<T>`. Isso significa que a consulta pode esperar até o momento em que você a percorre.
+
+```csharp
+List<int> numeros = new List<int> { 1, 2, 3, 4, 5, 6 };
+
+IEnumerable<int> pares = numeros.Where(numero => numero % 2 == 0);
+
+numeros.Add(8);
+
+Console.WriteLine(string.Join(", ", pares));
+// Saída: 2, 4, 6, 8
+```
+
+O `8` aparece porque `pares` ainda é uma consulta. Ao pedir os resultados, LINQ lê a lista atualizada.
+
+Quando você precisa guardar o resultado em uma lista independente, use `ToList()`:
+
+```csharp
+List<int> paresFixos = numeros
+    .Where(numero => numero % 2 == 0)
+    .ToList();
+
+numeros.Add(10);
+
+Console.WriteLine(string.Join(", ", paresFixos));
+// Saída: 2, 4, 6, 8
+// O 10 não entra: paresFixos já foi criado.
+```
+
+Use `ToList()` quando precisar, por exemplo, acessar por índice, adicionar/remover itens no resultado ou garantir que a consulta seja feita uma única vez naquele momento.
+
+### Transformar dados com `Select`
+
+Enquanto `Where` decide **quais itens ficam**, `Select` decide **como cada item será transformado**.
+
+```csharp
+List<int> numeros = new List<int> { 1, 2, 3, 4, 5 };
+
+IEnumerable<int> dobrados = numeros.Select(numero => numero * 2);
+IEnumerable<string> mensagens = numeros.Select(numero => $"Número: {numero}");
+
+Console.WriteLine(string.Join(", ", dobrados));
+// Saída: 2, 4, 6, 8, 10
+
+Console.WriteLine(string.Join(" | ", mensagens));
+// Saída: Número: 1 | Número: 2 | Número: 3 | Número: 4 | Número: 5
+```
+
+| Método | Pergunta que ele responde | Exemplo |
+|---|---|---|
+| `Where` | “Quais itens devem ficar?” | `Where(n => n > 5)` |
+| `Select` | “Em que cada item deve se transformar?” | `Select(n => n * 2)` |
+
+### Encadeando operações: uma etapa depois da outra
+
+As operações LINQ podem ser encadeadas. Leia de cima para baixo: primeiro filtra, depois ordena, depois limita e por último transforma.
+
+```csharp
+List<int> numeros = new List<int> { 3, 10, 1, 8, 6, 5, 2, 4, 9, 7 };
+
+List<int> tresMaioresParesAoQuadrado = numeros
+    .Where(numero => numero % 2 == 0)          // 10, 8, 6, 2, 4
+    .OrderByDescending(numero => numero)       // 10, 8, 6, 4, 2
+    .Take(3)                                    // 10, 8, 6
+    .Select(numero => numero * numero)         // 100, 64, 36
+    .ToList();
+
+Console.WriteLine(string.Join(", ", tresMaioresParesAoQuadrado));
+// Saída: 100, 64, 36
+```
+
+> [!tip] Como ler um encadeamento
+> Comece pela coleção antes do primeiro ponto. Depois acompanhe cada linha: **filtre** -> **ordene** -> **pegue uma parte** -> **transforme** -> **guarde**, se necessário.
+
+### Métodos LINQ mais úteis no começo
+
+| Método | O que faz | Exemplo | Resultado |
+|---|---|---|---|
+| `Where` | Filtra itens por uma condição. | `numeros.Where(n => n >= 7)` | Os números `7` ou maiores. |
+| `Select` | Transforma cada item. | `numeros.Select(n => n * 2)` | Cada número dobrado. |
+| `OrderBy` | Ordena do menor para o maior. | `numeros.OrderBy(n => n)` | Ordem crescente. |
+| `OrderByDescending` | Ordena do maior para o menor. | `numeros.OrderByDescending(n => n)` | Ordem decrescente. |
+| `Take` | Pega os primeiros itens. | `numeros.Take(3)` | Os três primeiros. |
+| `Skip` | Pula os primeiros itens. | `numeros.Skip(3)` | Itens depois dos três primeiros. |
+| `Distinct` | Remove valores repetidos no resultado. | `numeros.Distinct()` | Cada valor uma vez. |
+| `Any` | Verifica se existe ao menos um item. | `numeros.Any(n => n < 0)` | `true` ou `false`. |
+| `Count` | Conta itens; pode receber condição. | `numeros.Count(n => n > 5)` | Um número inteiro. |
+| `Sum`, `Average`, `Min`, `Max` | Calculam um único valor numérico. | `numeros.Average()` | Uma média. |
+| `FirstOrDefault` | Pega o primeiro item ou o valor padrão se não houver. | `numeros.FirstOrDefault(n => n > 50)` | `0` para `int` quando não encontra. |
+| `ToList` | Executa e guarda o resultado em uma `List<T>`. | `consulta.ToList()` | Uma lista independente. |
+
+### Calcular não é filtrar
+
+Métodos como `Where` e `Select` devolvem uma sequência de itens. Métodos como `Count`, `Sum` e `Average` devolvem **um único valor** e precisam percorrer a consulta para calculá-lo.
+
+```csharp
+List<double> notas = new List<double> { 4.5, 6.0, 7.5, 8.0, 10.0 };
+
+int quantidadeAprovados = notas.Count(nota => nota >= 6.0);
+double media = notas.Average();
+double maiorNota = notas.Max();
+bool existeNotaDez = notas.Any(nota => nota == 10.0);
+
+Console.WriteLine($"Aprovados: {quantidadeAprovados}"); // 4
+Console.WriteLine($"Média: {media}");                   // 7,2 ou 7.2, conforme a cultura
+Console.WriteLine($"Maior nota: {maiorNota}");           // 10
+Console.WriteLine($"Existe nota 10? {existeNotaDez}");   // True
+```
+
+### Programa completo: relatório simples de notas
+
+Este exemplo junta filtro, ordenação, cálculo e verificação. Ele pode ser copiado para um projeto Console.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+List<double> notas = new List<double> { 4.5, 6.0, 7.5, 8.0, 10.0, 5.0 };
+
+List<double> aprovados = notas
+    .Where(nota => nota >= 6.0)
+    .OrderByDescending(nota => nota)
+    .ToList();
+
+double mediaDaTurma = notas.Average();
+int quantidadeReprovados = notas.Count(nota => nota < 6.0);
+double primeiraNotaPerfeita = notas.FirstOrDefault(nota => nota == 10.0);
+
+Console.WriteLine("--- Relatório de Notas ---");
+Console.WriteLine($"Notas registradas: {string.Join(", ", notas)}");
+Console.WriteLine($"Aprovados em ordem decrescente: {string.Join(", ", aprovados)}");
+Console.WriteLine($"Média da turma: {mediaDaTurma:F2}");
+Console.WriteLine($"Quantidade abaixo de 6: {quantidadeReprovados}");
+Console.WriteLine($"Existe nota 10? {notas.Any(nota => nota == 10.0)}");
+Console.WriteLine($"Primeira nota 10 encontrada: {primeiraNotaPerfeita}");
+```
+
+Resultado esperado:
+
+```txt
+--- Relatório de Notas ---
+Notas registradas: 4.5, 6, 7.5, 8, 10, 5
+Aprovados em ordem decrescente: 10, 8, 7.5, 6
+Média da turma: 6,83 (ou 6.83, conforme a configuração do computador)
+Quantidade abaixo de 6: 2
+Existe nota 10? True
+Primeira nota 10 encontrada: 10
+```
+
+### Cuidados importantes
+
+1. **`Where` não retorna uma `List<T>` automaticamente.** Se precisar usar `Add`, `Remove` ou índice no resultado, termine com `ToList()`.
+2. **`First()` pode lançar erro** quando não encontra nenhum item. Para começar com mais segurança, prefira `FirstOrDefault()` e confira o valor devolvido. Para `int`, o padrão é `0`; se `0` também puder ser um resultado válido, use `Any(...)` para saber se o item realmente existe.
+3. **Uma consulta pode ser executada mais de uma vez.** Se a fonte muda entre duas leituras, o resultado também pode mudar. Use `ToList()` quando quiser congelar aquele resultado.
+4. **LINQ não é obrigatório em todo `foreach`.** Se você precisa alterar cada item, guardar várias decisões ou o laço fica mais claro, `foreach` continua sendo uma excelente escolha.
+5. **Dê nomes claros às variáveis da expressão lambda.** `nota => nota >= 6` ensina mais do que `n => n >= 6` quando você ainda está aprendendo.
+
+### Exercite antes de seguir
+
+1. Crie uma lista com os números de `1` a `20` e use `Where` para mostrar apenas os múltiplos de `3`.
+2. Use `Select` para criar outra sequência com o quadrado de cada número de `1` a `10`.
+3. Dada uma lista de notas, mostre apenas as notas maiores ou iguais a `6`, em ordem decrescente.
+4. Em uma lista com valores repetidos, use `Distinct` e depois `OrderBy` para mostrar cada valor uma única vez, em ordem crescente.
+5. Calcule a média e use `Where` para encontrar as notas maiores que a média.
 
 ---
 
@@ -365,4 +568,3 @@ while (true)
 
 ---
 [[1-index|Voltar para o index]]
-
