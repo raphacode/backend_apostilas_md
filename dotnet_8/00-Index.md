@@ -1,4 +1,4 @@
-﻿# Apostila Completa de Backend com C#
+# Apostila Completa de Backend com C#
 
 > Uma jornada do **absoluto zero** até a construção de **APIs profissionais** com C# e ASP.NET Core.
 > Material didático para alunos iniciantes que **nunca programaram**.
