@@ -1,4 +1,4 @@
-﻿# Capítulo 10 — Construindo uma API REST com ASP.NET Core
+# Capítulo 10 — Construindo uma API REST com ASP.NET Core
 
 > Hora de pôr a mão na massa! Vamos criar uma API completa, do zero, e entender cada peça.
 
