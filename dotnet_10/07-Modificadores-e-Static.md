@@ -10,14 +10,14 @@ Modificadores de acesso são **palavras-chave** que controlam **quem pode ver e 
 
 Os principais em C#:
 
-| Modificador | Visibilidade |
-|---|---|
-| `public` | **Qualquer um**, em qualquer projeto. |
-| `private` | **Só dentro da própria classe**. |
-| `protected` | A própria classe **e suas subclasses**. |
-| `internal` | **Qualquer um, mas só dentro do mesmo projeto/assembly**. |
-| `protected internal` | Subclasses **ou** mesmo projeto. |
-| `private protected` | Subclasses **dentro do mesmo projeto**. |
+| Modificador          | Visibilidade                                              |
+| -------------------- | --------------------------------------------------------- |
+| `public`             | **Qualquer um**, em qualquer projeto.                     |
+| `private`            | **Só dentro da própria classe**.                          |
+| `protected`          | A própria classe **e suas subclasses**.                   |
+| `internal`           | **Qualquer um, mas só dentro do mesmo projeto/assembly**. |
+| `protected internal` | Subclasses **ou** mesmo projeto.                          |
+| `private protected`  | Subclasses **dentro do mesmo projeto**.                   |
 
 Os **4 primeiros** são os que você usa 99% do tempo.
 
@@ -137,13 +137,13 @@ public class Exemplo
 }
 ```
 
-| De onde estou olhando? | Vejo `A`? | `B`? | `C`? | `D`? |
-|---|:-:|:-:|:-:|:-:|
-| Mesma classe | ✅ | ✅ | ✅ | ✅ |
-| Subclasse no mesmo projeto | ✅ | ✅ | ✅ | ❌ |
-| Subclasse em outro projeto | ✅ | ❌ | ✅ | ❌ |
-| Outra classe no mesmo projeto | ✅ | ✅ | ❌ | ❌ |
-| Outra classe em outro projeto | ✅ | ❌ | ❌ | ❌ |
+| De onde estou olhando?        | Vejo `A`? | `B`? | `C`? | `D`? |
+| ----------------------------- | :-------: | :--: | :--: | :--: |
+| Mesma classe                  |     ✅     |  ✅   |  ✅   |  ✅   |
+| Subclasse no mesmo projeto    |     ✅     |  ✅   |  ✅   |  ❌   |
+| Subclasse em outro projeto    |     ✅     |  ❌   |  ✅   |  ❌   |
+| Outra classe no mesmo projeto |     ✅     |  ✅   |  ❌   |  ❌   |
+| Outra classe em outro projeto |     ✅     |  ❌   |  ❌   |  ❌   |
 
 ---
 
