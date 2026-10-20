@@ -140,11 +140,11 @@ Sempre retornam `true` ou `false`.
 
 ### Operadores lógicos
 
-| Operador | Significado |
-|---|---|
-| `&&` | E (todas as condições verdadeiras) |
-| `\|\|` | OU (pelo menos uma verdadeira) |
-| `!` | NÃO (inverte) |
+| Operador | Significado                        |
+| -------- | ---------------------------------- |
+| `&&`     | E (todas as condições verdadeiras) |
+| `\|\|`   | OU (pelo menos uma verdadeira)     |
+| `!`      | NÃO (inverte)                      |
 
 ```csharp
 bool maiorDeIdade = idade >= 18;

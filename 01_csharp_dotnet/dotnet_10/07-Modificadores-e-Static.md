@@ -307,11 +307,11 @@ public class Configuracao
 }
 ```
 
-| | `const` | `static readonly` |
-|---|---|---|
-| Quando o valor é definido | **Em tempo de compilação** | **Em tempo de execução** |
-| Pode usar valores dinâmicos? | ❌ Não | ✅ Sim (ex: `DateTime.Now`) |
-| Uso típico | Números, strings literais | Valores calculados |
+|                              | `const`                    | `static readonly`          |
+| ---------------------------- | -------------------------- | -------------------------- |
+| Quando o valor é definido    | **Em tempo de compilação** | **Em tempo de execução**   |
+| Pode usar valores dinâmicos? | ❌ Não                      | ✅ Sim (ex: `DateTime.Now`) |
+| Uso típico                   | Números, strings literais  | Valores calculados         |
 
 ---
 

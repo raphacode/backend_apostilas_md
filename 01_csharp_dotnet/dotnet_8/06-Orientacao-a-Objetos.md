@@ -1,4 +1,4 @@
-﻿# Capítulo 6 — Orientação a Objetos (Completo)
+# Capítulo 6 — Orientação a Objetos (Completo)
 
 > "Programar é modelar a realidade." Orientação a Objetos (OO) é a forma mais usada no mundo de **organizar essa modelagem**. Este capítulo é o coração da apostila — leia com calma, releia se precisar.
 
