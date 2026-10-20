@@ -471,12 +471,12 @@ Vamos detalhar ambas no **Capítulo 8**, com calma.
 
 ## 6.10 Os 4 pilares da OO (revisão visual)
 
-| Pilar | Em uma frase |
-|---|---|
-| **Encapsulamento** | Esconder os detalhes; expor o necessário. |
-| **Herança** | Reutilizar código entre classes "parentes". |
-| **Polimorfismo** | Mesmo método, comportamentos diferentes. |
-| **Abstração** | Focar no essencial; esconder o complexo. |
+| Pilar              | Em uma frase                                |
+| ------------------ | ------------------------------------------- |
+| **Encapsulamento** | Esconder os detalhes; expor o necessário.   |
+| **Herança**        | Reutilizar código entre classes "parentes". |
+| **Polimorfismo**   | Mesmo método, comportamentos diferentes.    |
+| **Abstração**      | Focar no essencial; esconder o complexo.    |
 
 Decore esses 4. Você vai ouvir falar deles a vida inteira.
 
