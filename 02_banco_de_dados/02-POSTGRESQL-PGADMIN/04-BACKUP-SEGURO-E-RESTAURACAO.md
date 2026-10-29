@@ -69,14 +69,37 @@ loja_2026-10-27.sql
 
 ## 4. Criando um backup no pgAdmin
 
+### Conferir pelo Query Tool antes do backup
+
+Antes de criar a cópia, clique com o botão direito no banco e escolha **Query Tool**. Confirme qual banco está aberto:
+
+```sql
+SELECT current_database() AS banco_conectado;
+```
+
+Em seguida, confira uma tabela conhecida. Troque `clientes` pelo nome de uma tabela existente no banco da aula:
+
+```sql
+SELECT COUNT(*) AS total_registros
+FROM clientes;
+```
+
+Anote o resultado. Ele será comparado depois da restauração.
+
+### Criar o backup pelo botão direito
+
 1. Na árvore do pgAdmin, localize o banco que será copiado.
-2. Clique com o botão direito no nome do banco.
-3. Escolha **Backup...**.
-4. Em **Filename**, selecione uma pasta e informe um nome claro, por exemplo `loja_2026-10-27.backup`.
-5. Em **Format**, escolha `Custom`.
-6. Confira mais uma vez o banco selecionado e o caminho do arquivo.
-7. Clique em **Backup**.
-8. Aguarde a mensagem de conclusão e confirme que o arquivo existe na pasta escolhida.
+2. Clique com o botão direito no nome do banco, como `padariaTeste`.
+3. No menu que abrir, clique em **Backup...**.
+4. Na janela de backup, abra a aba **General**.
+5. Em **Filename**, selecione a pasta e informe um nome claro, por exemplo `padariaTeste_2026-10-27.backup`.
+6. Em **Format**, escolha `Custom`.
+7. Confira mais uma vez o banco selecionado e o caminho do arquivo.
+8. Clique em **Backup**.
+9. Aguarde a mensagem de conclusão e confirme que o arquivo existe na pasta escolhida.
+
+> [!note] Importante
+> O arquivo `.backup` é criado pela janela **Backup...** do menu de botão direito. A Query Tool serve para conferir dados e executar consultas SQL antes e depois da cópia.
 
 > [!tip] Boa prática
 > Não use nomes genéricos como `backup.backup`. Um nome com banco e data evita confusão quando houver várias cópias.
@@ -131,7 +154,7 @@ CREATE DATABASE loja_restaurada_teste;
 
 1. Clique com o botão direito no banco de teste.
 2. Escolha **Restore...**.
-3. Selecione o arquivo `.backup` criado anteriormente.
+3. Na aba **General**, selecione o arquivo `.backup` criado anteriormente.
 4. Confira que o banco de destino é `loja_restaurada_teste`.
 5. Clique em **Restore**.
 6. Atualize a árvore do banco para visualizar tabelas, esquemas e dados restaurados.
