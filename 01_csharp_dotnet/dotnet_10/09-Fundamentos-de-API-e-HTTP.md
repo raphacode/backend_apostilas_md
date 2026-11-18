@@ -1,4 +1,4 @@
-﻿# Capítulo 9 — Fundamentos de API e HTTP
+# Capítulo 9 — Fundamentos de API e HTTP
 
 > Antes de criar uma API, você precisa entender como **a internet conversa**. Este capítulo explica os tijolos que sustentam toda a web.
 
@@ -143,29 +143,29 @@ Isso importa: clientes podem **repetir** requisições idempotentes em caso de e
 
 São números de 3 dígitos que dizem **o que aconteceu** com a requisição. Agrupados em categorias:
 
-| Faixa | Categoria | Significado |
-|---|---|---|
-| **1xx** | Informacional | Raramente usado |
-| **2xx** | **Sucesso** | Deu certo |
-| **3xx** | Redirecionamento | "Vai pra outro lugar" |
-| **4xx** | **Erro do cliente** | Você errou no pedido |
-| **5xx** | **Erro do servidor** | Eu (servidor) bugei |
+| Faixa   | Categoria            | Significado           |
+| ------- | -------------------- | --------------------- |
+| **1xx** | Informacional        | Raramente usado       |
+| **2xx** | **Sucesso**          | Deu certo             |
+| **3xx** | Redirecionamento     | "Vai pra outro lugar" |
+| **4xx** | **Erro do cliente**  | Você errou no pedido  |
+| **5xx** | **Erro do servidor** | Eu (servidor) bugei   |
 
 ### Os mais importantes
 
-| Code | Nome | Quando usar |
-|---|---|---|
-| **200** | OK | Sucesso geral |
-| **201** | Created | Algo foi **criado** com sucesso (POST) |
-| **204** | No Content | Sucesso, sem corpo de resposta (DELETE típico) |
-| **400** | Bad Request | A requisição está malformada / dados inválidos |
-| **401** | Unauthorized | Não autenticado (precisa logar) |
-| **403** | Forbidden | Autenticado, mas **sem permissão** |
-| **404** | Not Found | Recurso não existe |
-| **409** | Conflict | Conflito (ex: e-mail já cadastrado) |
-| **422** | Unprocessable Entity | Validação falhou |
-| **500** | Internal Server Error | Erro inesperado no servidor |
-| **503** | Service Unavailable | Servidor fora do ar |
+| Code    | Nome                  | Quando usar                                    |
+| ------- | --------------------- | ---------------------------------------------- |
+| **200** | OK                    | Sucesso geral                                  |
+| **201** | Created               | Algo foi **criado** com sucesso (POST)         |
+| **204** | No Content            | Sucesso, sem corpo de resposta (DELETE típico) |
+| **400** | Bad Request           | A requisição está malformada / dados inválidos |
+| **401** | Unauthorized          | Não autenticado (precisa logar)                |
+| **403** | Forbidden             | Autenticado, mas **sem permissão**             |
+| **404** | Not Found             | Recurso não existe                             |
+| **409** | Conflict              | Conflito (ex: e-mail já cadastrado)            |
+| **422** | Unprocessable Entity  | Validação falhou                               |
+| **500** | Internal Server Error | Erro inesperado no servidor                    |
+| **503** | Service Unavailable   | Servidor fora do ar                            |
 
 > **Diferença sutil entre 401 e 403:**
 > - **401**: você não disse quem é.

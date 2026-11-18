@@ -47,4 +47,11 @@ mindmap
     Projetos
       Loja
       Padaria
+    Supabase
+      Conta e Projeto
+      Session Pooler
+      Backup Plain INSERT
+      Importar no Query Tool
+      Conferir COUNT
+      RLS
 ```

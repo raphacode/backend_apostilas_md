@@ -18,6 +18,7 @@ tags: [postgres, sql, banco-de-dados, obsidian]
 7. [[3-Apostilas/backend/banco_de_dados_postgreSQL/06-SQL-AVANCADO/01-TRANSACOES]]
 8. [[00-BANCO-LOJA]]
 9. [[00-PROJETO-PADARIA]]
+10. [[00-SUPABASE-INICIO]] (módulo final: Supabase, o banco na nuvem)
 
 > [!CAUTION]
 > `UPDATE`, `DELETE`, `TRUNCATE` e `DROP` podem causar perda massiva de dados. Sempre confira o banco, o `WHERE` e as dependências.

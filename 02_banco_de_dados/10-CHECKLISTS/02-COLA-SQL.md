@@ -81,3 +81,10 @@ CAST()
 %
 CROSS JOIN
 ```
+
+## Supabase
+```sql
+SELECT current_database();
+ALTER TABLE ... ENABLE ROW LEVEL SECURITY;
+SELECT tablename, rowsecurity FROM pg_tables WHERE schemaname = 'public';
+```

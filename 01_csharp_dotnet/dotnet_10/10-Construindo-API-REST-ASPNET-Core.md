@@ -23,7 +23,7 @@ No terminal, em uma pasta nova:
 dotnet new webapi -n MinhaApi --use-controllers --framework net10.0
 cd MinhaApi
 dotnet add package Microsoft.AspNetCore.OpenApi --version 10.0.8
-dotnet add package Swashbuckle.AspNetCore.SwaggerUI --version 10.2.1
+dotnet adpackage Swashbuckle.AspNetCore.SwaggerUId  --version 10.2.1
 dotnet run
 ```
 
